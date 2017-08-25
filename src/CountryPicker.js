@@ -64,6 +64,7 @@ export default class CountryPicker extends Component {
     styles: React.PropTypes.object,
     filterPlaceholder: React.PropTypes.string,
     autoFocusFilter: React.PropTypes.bool,
+    modalVisible: React.PropTypes.bool
   }
 
   static defaultProps = {
@@ -72,6 +73,7 @@ export default class CountryPicker extends Component {
     excludeCountries: [],
     filterPlaceholder: 'Filter',
     autoFocusFilter: true,
+    modalVisible: false,
   }
 
   static renderEmojiFlag(cca2, emojiStyle) {
@@ -166,6 +168,7 @@ export default class CountryPicker extends Component {
         dataSource: ds.cloneWithRows(nextProps.countryList),
       });
     }
+    this.setState({modalVisible: nextProps.modalVisible });
   }
 
   onSelectCountry(cca2) {
